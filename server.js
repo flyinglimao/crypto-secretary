@@ -62,8 +62,8 @@ app.post(`/${process.env.TELEGRAM_WEBHOOK}`, async (req, res) => {
 const server = https.createServer(
   {
     key: fs.readFileSync(__dirname + "/ssl/private.key"),
-    crt: fs.readFileSync(__dirname + "/ssl/cert.crt"),
+    cert: fs.readFileSync(__dirname + "/ssl/cert.crt"),
   },
   app
 );
-app.listen(process.env.PORT, () => console.log("Server Started"));
+server.listen(process.env.PORT, () => console.log("Server Started"));

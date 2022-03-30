@@ -42,12 +42,11 @@ Example: /shutup 1 day`
     return send(
       chatId,
       `There are some commands can be used:
-* Watch some event for an address: /watch <address>[@<network>] [ft|nft] [send|receive|approve]
-* Unwatch some event for an address: /unwatch <address>[@<network>] [ft|nft] [send|receive|approve]
-* Mute the bot for a while: /shutup <length>
+* Watch some event for an address: /watch <address>[@<network>] [send|receive|approve]
+* Unwatch some event for an address: /unwatch <address>[@<network>] [send|receive|approve]
 * Get helps for a command: /help <command>
 
-You can use command like '/help shutup'. Note that /help is disabled in group and channels.`
+You can use command like '/help watch'. Note that /help is disabled in group and channels.`
     );
   }
 };
