@@ -2,6 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
+const fs = require("fs");
+const https = require("https");
+
 const db = require("./models");
 const startCron = require("./cron");
 
@@ -56,4 +59,11 @@ app.post(`/${process.env.TELEGRAM_WEBHOOK}`, async (req, res) => {
   res.send({ success: true });
 });
 
+const server = https.createServer(
+  {
+    key: fs.readFileSync(__dirname + "/ssl/private.key"),
+    crt: fs.readFileSync(__dirname + "/ssl/cert.crt"),
+  },
+  app
+);
 app.listen(process.env.PORT, () => console.log("Server Started"));
