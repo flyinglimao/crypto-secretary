@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "commonjs",
   "dependencies": {
+    "@sequelize/core": "^7.0.0-alpha.10",
     "axios": "^0.26.1",
     "body-parser": "^1.19.2",
     "dotenv": "^16.0.0",

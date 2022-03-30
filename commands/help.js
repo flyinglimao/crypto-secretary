@@ -6,23 +6,23 @@ module.exports = function (chatId, message, send, { supportNetworks }) {
       case "watch":
         return send(
           chatId,
-          `/watch command usage: /watch <address>[@<network>] [ft|nft] [send|receive|approve]
+          `/watch command usage: /watch <address>[@<network>] [send|receive|approve]
 There is a required parameter <address> and 3 optional parameters.
 Required parameter <address> can be an address (0xabc...def).
 Optional parameter @<network> is used when you only want to watch the addrsss for a chain, use '/help networks' to check accpets networks, default is all.
-Optional parameter [ft|nft] is used when you only want to watch FT (ERC20) or NFT (ERC721, ERC1155) events, accepts 'ft' or 'nft', default is both.
 Optional parameter [send|receive|approve] is used when you only want to watch an event, accepts 'send', 'receive', or 'approve', default is all.`
+          // Optional parameter [ft|nft] is used when you only want to watch FT (ERC20) or NFT (ERC721, ERC1155) events, accepts 'ft' or 'nft', default is both.
         );
       case "unwatch":
         return send(
           chatId,
-          `/unwatch command usage: /watch <address>[@<network>] [ft|nft] [send|receive|approve]
+          `/unwatch command usage: /watch <address>[@<network>] [send|receive|approve]
 There is a required parameter <address> and 3 optional parameters.
 If you didn't watch for some events, this command won't work.
 Required parameter <address> can be an address (0xabc...def).
 Optional parameter @<network> is used when you only want to unwatch the addrsss for a chain, use '/help networks' to check accpets networks, default is all.
-Optional parameter [ft|nft] is used when you only want to unwatch FT (ERC20) or NFT (ERC721, ERC1155) events, accepts 'ft' or 'nft', default is both.
 Optional parameter [send|receive|approve] is used when you only want to unwatch an event, accepts 'send', 'receive', or 'approve', default is all.`
+          // Optional parameter [ft|nft] is used when you only want to unwatch FT (ERC20) or NFT (ERC721, ERC1155) events, accepts 'ft' or 'nft', default is both.
         );
       case "shutup":
         return send(

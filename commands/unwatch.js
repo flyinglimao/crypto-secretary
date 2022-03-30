@@ -19,8 +19,8 @@ module.exports = function (chatId, message, send, { supportNetworks }) {
   const args = message.split(" ");
 
   const [address, network] = args[1].split("@");
-  const topic = args[2];
-  const event = args[3];
+  const topic = null; //args[2];
+  const event = args[2];
 
   if (!address || !address.match(/0x[0-9a-zA-Z]{40}/))
     return send(chatId, `${address} is an invalid address`);
@@ -33,7 +33,7 @@ module.exports = function (chatId, message, send, { supportNetworks }) {
 
   const createRecords = [];
   (network ? [network] : Object.keys(supportNetworks)).forEach((network) => {
-    (topic ? [topic] : ["ft", "nft"]).forEach((topic) => {
+    (topic ? [topic] : ["ft" /*, "nft" */]).forEach((topic) => {
       (event ? [event] : ["send", "receive", "approve"]).forEach((event) => {
         createRecords.push(
           deleteRecord(chatId, address, network, topic, event)

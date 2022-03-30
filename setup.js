@@ -1,6 +1,7 @@
 require("dotenv").config();
 const axios = require("axios");
 const url = require("url");
+const db = require("./models");
 
 const webhookIdx = process.argv.findIndex((e) => e == "--url");
 if (webhookIdx < 0) {
