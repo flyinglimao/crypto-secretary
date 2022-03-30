@@ -1,12 +1,23 @@
 const db = require("../models");
 
 function createRecord(chat_id, address, network, topic, event) {
-  return db.Watch.findOrCreate({
-    chat_id,
-    address,
-    network,
-    topic,
-    event,
+  return db.Watch.findOne({
+    where: {
+      chat_id,
+      address,
+      network,
+      topic,
+      event,
+    },
+  }).then((dat) => {
+    if (!dat)
+      return db.Watch.create({
+        chat_id,
+        address,
+        network,
+        topic,
+        event,
+      });
   });
 }
 
@@ -42,7 +53,8 @@ module.exports = function (chatId, message, send, { supportNetworks }) {
     .then(() => {
       send(chatId, "Observers are created");
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err);
       send(chatId, "Something went wrong");
     });
 };

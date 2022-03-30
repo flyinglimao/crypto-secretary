@@ -36,7 +36,7 @@ module.exports = function (chatId, message, send, { supportNetworks }) {
     (topic ? [topic] : ["ft" /*, "nft" */]).forEach((topic) => {
       (event ? [event] : ["send", "receive", "approve"]).forEach((event) => {
         createRecords.push(
-          deleteRecord(chatId, address, network, topic, event)
+          deleteRecord(chatId, address.toLowerCase(), network, topic, event)
         );
       });
     });
