@@ -25,7 +25,7 @@ module.exports = function (chatId, message, send, { supportNetworks }) {
   // /watch <address>[@<network>] [ft|nft] [send|receive|approve]
   const args = message.split(" ");
 
-  const [address, network] = args[1].split("@");
+  const [address, network] = (args[1] && args[1].split("@")) || [null, null];
   const topic = null; //args[2];
   const event = args[2];
 
